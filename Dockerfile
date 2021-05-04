@@ -1,9 +1,9 @@
-FROM gradle:6.4.1-jre14 AS build
+FROM gradle:7.0.0-jdk16-hotspot AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
 RUN gradle build --no-daemon
 
-FROM adoptopenjdk:14-jre-hotspot
+FROM adoptopenjdk:16-jre-hotspot
 
 EXPOSE 5004
 
