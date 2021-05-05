@@ -1,15 +1,23 @@
 package com.tmsolution.settingsapi.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/settings")
 public class SettingsController {
 
-    @RequestMapping(path = "/test", method = RequestMethod.GET)
+    @GetMapping(path = "/test")
     public String test(){
         return "test";
+    }
+
+    @PutMapping(path = "/toggle2fa")
+    public void toggle2FA(){
+
+    }
+
+    @PutMapping(path = "toggleTheme")
+    public void toggleTheme(){
+
     }
 }
