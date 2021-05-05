@@ -1,0 +1,23 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: settingsapi
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: settingsapi
+  template:
+    metadata:
+      labels:
+        app: settingsapi
+      annotations:
+        "consul.hashicorp.com/connect-inject": "true"
+        "consul.hashicorp.com/service-name": "settingsapi"
+        "consul.hashicorp.com/connect-service-port": "5004"
+    spec:
+      containers:
+        - name: settingsapi
+          image: settingsapi:v1
+          ports:
+          - containerPort: 5004          
