@@ -3,12 +3,14 @@ package com.tmsolution.settingsapi.services.gRPC;
 
 import com.tmsolution.settingsapi.requestmodels.Toggle2faRequest;
 import io.grpc.stub.StreamObserver;
+import net.devh.boot.grpc.server.service.GrpcService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import settingsapi.SettingsApiGrpc;
 import settingsapi.toggle2faRequest;
 import settingsapi.toggle2faResponse;
 
+@GrpcService
 public class SettingsApiService extends SettingsApiGrpc.SettingsApiImplBase {
 
     @Autowired
