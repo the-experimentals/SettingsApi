@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+service SettingsApi{
+  rpc toggle2fa (toggle2faRequest) returns (toggle2faRqsponse);
+}
+
+message toggle2faRequest{
+  bool ENABLED = 1;
+}
+
+message toggle2faRqsponse{
+  bool ENABLED = 1;
+}
