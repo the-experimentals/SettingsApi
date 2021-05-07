@@ -1,13 +1,24 @@
 package com.tmsolution.settingsapi.services.gRPC;
 
+
+import com.tmsolution.settingsapi.requestmodels.Toggle2faRequest;
 import io.grpc.stub.StreamObserver;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import settingsapi.SettingsApiGrpc;
 import settingsapi.toggle2faRequest;
-import settingsapi.toggle2faRqsponse;
+import settingsapi.toggle2faResponse;
 
 public class SettingsApiService extends SettingsApiGrpc.SettingsApiImplBase {
+
+    @Autowired
+    private ModelMapper modelMapper;
+
     @Override
-    public void toggle2fa(toggle2faRequest request, StreamObserver<toggle2faRqsponse> responseObserver) {
-        super.toggle2fa(request, responseObserver);
+    public void toggle2fa(toggle2faRequest request, StreamObserver<toggle2faResponse> responseObserver) {
+//        super.toggle2fa(request, responseObserver);
+
+        var toggle2fa = modelMapper.map(request, Toggle2faRequest.class);
+
     }
 }

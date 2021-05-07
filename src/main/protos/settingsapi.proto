@@ -3,13 +3,13 @@ option java_multiple_files = true;
 package settingsapi;
 
 service SettingsApi{
-  rpc toggle2fa (toggle2faRequest) returns (toggle2faRqsponse);
+  rpc toggle2fa (toggle2faRequest) returns (toggle2faResponse);
 }
 
 message toggle2faRequest{
   bool ENABLED = 1;
 }
 
-message toggle2faRqsponse{
+message toggle2faResponse{
   bool ENABLED = 1;
 }
