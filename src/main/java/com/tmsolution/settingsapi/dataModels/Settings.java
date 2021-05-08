@@ -3,35 +3,35 @@ package com.tmsolution.settingsapi.dataModels;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection = "FirstCollection")
+@Document(collection = "Settings")
 public class Settings {
 
     @Id
-    private String _id;
-    private boolean _2fA;
-    private String _theme;
+    private String id;
+    private boolean twofa;
+    private String theme;
 
-    public String get_id() {
-        return _id;
+    public String getId() {
+        return id;
     }
 
-    public void set_id(String _id) {
-        this._id = _id;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public boolean is_2fA() {
-        return _2fA;
+    public boolean isTwofa() {
+        return twofa;
     }
 
-    public void set_2fA(boolean _2fA) {
-        this._2fA = _2fA;
+    public void setTwofa(boolean twofa) {
+        this.twofa = twofa;
     }
 
-    public String get_theme() {
-        return _theme;
+    public String getTheme() {
+        return theme;
     }
 
-    public void set_theme(String _theme) {
-        this._theme = _theme;
+    public void setTheme(String theme) {
+        this.theme = theme;
     }
 }
