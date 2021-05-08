@@ -30,8 +30,8 @@ public class SettingsController {
 
     @GetMapping()
     public ResponseEntity<SettingsResponse> get(){
-        var settings = settingsRepository.findAll().get(0);
-        if(Objects.nonNull(settings)){
+        var settings = settingsRepository.findAll();
+        if(!settings.isEmpty()){
             SettingsResponse settingsResponse = modelMapper.map(settings, SettingsResponse.class);
             return new ResponseEntity<SettingsResponse>(settingsResponse, HttpStatus.OK);
         }
