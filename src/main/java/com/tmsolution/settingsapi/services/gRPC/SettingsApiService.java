@@ -21,6 +21,8 @@ public class SettingsApiService extends SettingsApiGrpc.SettingsApiImplBase {
 //        super.toggle2fa(request, responseObserver);
 
         var toggle2fa = modelMapper.map(request, Toggle2faRequest.class);
+        System.out.println("Working gRPC endpoint");
+        responseObserver.onCompleted();
 
     }
 }
