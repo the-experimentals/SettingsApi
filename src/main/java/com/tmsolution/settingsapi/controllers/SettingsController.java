@@ -1,5 +1,6 @@
 package com.tmsolution.settingsapi.controllers;
 
+import com.tmsolution.settingsapi.constants.EndpointMappings;
 import com.tmsolution.settingsapi.repositories.SettingsRepository;
 import com.tmsolution.settingsapi.responsemodels.SettingsResponse;
 import org.modelmapper.ModelMapper;
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Objects;
 
 @RestController
-@RequestMapping("/api/settings")
+@RequestMapping(EndpointMappings.CONTROLLER_PATH)
 public class SettingsController {
 
     private SettingsRepository settingsRepository;
@@ -23,7 +24,7 @@ public class SettingsController {
         this.modelMapper = modelMapper;
     }
 
-    @GetMapping(path = "/test")
+    @GetMapping(path = EndpointMappings.TEST_ACTION)
     public String test(){
         return "test";
     }
@@ -41,12 +42,12 @@ public class SettingsController {
 
     }
 
-    @PutMapping(path = "/toggle2fa")
+    @PutMapping(path = EndpointMappings.TOGGLE_2FA_ACTION)
     public void toggle2FA(){
         var test = settingsRepository.findAll();
     }
 
-    @PutMapping(path = "toggleTheme")
+    @PutMapping(path = EndpointMappings.TOGGLE_THEME_ACTION)
     public void toggleTheme(){
 
     }

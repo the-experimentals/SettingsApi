@@ -1,5 +1,6 @@
 package com.tmsolution.settingsapi.bootstrap;
 
+import com.tmsolution.settingsapi.constants.Themes;
 import com.tmsolution.settingsapi.dataModels.Settings;
 import com.tmsolution.settingsapi.repositories.SettingsRepository;
 import org.springframework.boot.CommandLineRunner;
@@ -21,7 +22,7 @@ public class BootstrapData implements CommandLineRunner {
         if(settingsRepository.findAll().isEmpty()){
             Settings defaultSettings = new Settings();
             defaultSettings.setTwofa(true);
-            defaultSettings.setTheme("light-theme");
+            defaultSettings.setTheme(Themes.LIGHT.getValue());
 
             settingsRepository.save(defaultSettings);
         }
