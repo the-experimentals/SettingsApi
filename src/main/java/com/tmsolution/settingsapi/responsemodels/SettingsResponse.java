@@ -1,5 +1,7 @@
 package com.tmsolution.settingsapi.responsemodels;
 
+import com.tmsolution.settingsapi.constants.Themes;
+
 public class SettingsResponse {
 
     private boolean twofa;
@@ -14,7 +16,7 @@ public class SettingsResponse {
     }
 
     public String getTheme() {
-        return theme;
+        return this.theme;
     }
 
     public void setTheme(String theme) {

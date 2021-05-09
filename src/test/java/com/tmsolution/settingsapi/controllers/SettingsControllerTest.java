@@ -34,6 +34,6 @@ public class SettingsControllerTest {
     @DisplayName("Testing settings not found")
     void testSettingsNotFound() throws Exception {
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/settings")).andExpect(MockMvcResultMatchers.status().isNotFound());
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/settings/get-settings")).andExpect(MockMvcResultMatchers.status().isNotFound());
     }
 }

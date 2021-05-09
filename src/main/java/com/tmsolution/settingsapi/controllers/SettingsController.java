@@ -1,9 +1,12 @@
 package com.tmsolution.settingsapi.controllers;
 
 import com.tmsolution.settingsapi.constants.EndpointMappings;
+import com.tmsolution.settingsapi.dataModels.Settings;
 import com.tmsolution.settingsapi.repositories.SettingsRepository;
 import com.tmsolution.settingsapi.responsemodels.SettingsResponse;
 import org.modelmapper.ModelMapper;
+import org.modelmapper.PropertyMap;
+import org.modelmapper.TypeMap;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -29,11 +32,12 @@ public class SettingsController {
         return "test";
     }
 
-    @GetMapping()
-    public ResponseEntity<SettingsResponse> get(){
+    @GetMapping("get-settings")
+    public ResponseEntity<SettingsResponse> getSettings(){
+
         var settings = settingsRepository.findAll();
         if(!settings.isEmpty()){
-            SettingsResponse settingsResponse = modelMapper.map(settings, SettingsResponse.class);
+            SettingsResponse settingsResponse = modelMapper.map(settings.get(0), SettingsResponse.class);
             return new ResponseEntity<SettingsResponse>(settingsResponse, HttpStatus.OK);
         }
         else {
