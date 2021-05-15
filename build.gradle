@@ -73,7 +73,7 @@ asciidoctor {
 
 protobuf {
 	protoc {
-		artifact = 'com.google.protobuf:protoc:3.15.8'
+		artifact = 'com.google.protobuf:protoc:3.17.0'
 	}
 
 	plugins {
