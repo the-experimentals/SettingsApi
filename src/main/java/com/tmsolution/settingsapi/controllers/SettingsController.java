@@ -32,7 +32,7 @@ public class SettingsController {
         return "test";
     }
 
-    @GetMapping("get-settings")
+    @GetMapping(EndpointMappings.GET_SETTINGS)
     public ResponseEntity<SettingsResponse> getSettings(){
 
         var settings = settingsRepository.findAll();

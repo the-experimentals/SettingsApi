@@ -1,5 +1,6 @@
 package com.tmsolution.settingsapi.controllers;
 
+import com.tmsolution.settingsapi.constants.EndpointMappings;
 import com.tmsolution.settingsapi.repositories.SettingsRepository;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -34,6 +35,6 @@ public class SettingsControllerTest {
     @DisplayName("Testing settings not found")
     void testSettingsNotFound() throws Exception {
         MockMvc mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/settings/get-settings")).andExpect(MockMvcResultMatchers.status().isNotFound());
+        mockMvc.perform(MockMvcRequestBuilders.get(EndpointMappings.CONTROLLER_PATH.concat(EndpointMappings.GET_SETTINGS))).andExpect(MockMvcResultMatchers.status().isNotFound());
     }
 }
