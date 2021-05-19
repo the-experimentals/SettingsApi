@@ -45,7 +45,7 @@ dependencies {
 	implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.4.3'
 
 	implementation group: 'io.grpc', name: 'grpc-netty', version: '1.37.1'
-	implementation group: 'io.grpc', name: 'grpc-protobuf', version: '1.37.1'
+	implementation group: 'io.grpc', name: 'grpc-protobuf', version: '1.38.0'
 	implementation group: 'io.grpc', name: 'grpc-stub', version: '1.37.1'
 	implementation group: 'com.google.protobuf', name: 'protobuf-java-util', version: '3.15.8'
 
