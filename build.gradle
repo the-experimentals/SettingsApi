@@ -3,7 +3,7 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'org.asciidoctor.convert' version '1.5.8'
 	id 'java'
-	id 'com.google.protobuf' version '0.8.16'
+	id 'com.google.protobuf' version '3.17.2'
 }
 
 apply plugin: 'java'
@@ -73,7 +73,7 @@ asciidoctor {
 
 protobuf {
 	protoc {
-		artifact = 'com.google.protobuf:protoc:3.17.0'
+		artifact = 'com.google.protobuf:protoc:3.17.2'
 	}
 
 	plugins {
