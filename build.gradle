@@ -42,7 +42,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
 	implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.4.0-b180830.0359'
-	implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.4.3'
+	implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.4.4'
 
 	implementation group: 'io.grpc', name: 'grpc-netty', version: '1.38.0'
 	implementation group: 'io.grpc', name: 'grpc-protobuf', version: '1.38.0'
@@ -73,7 +73,7 @@ asciidoctor {
 
 protobuf {
 	protoc {
-		artifact = 'com.google.protobuf:protoc:3.17.0'
+		artifact = 'com.google.protobuf:protoc:3.17.2'
 	}
 
 	plugins {
