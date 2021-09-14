@@ -4,6 +4,7 @@ plugins {
 	id 'org.asciidoctor.convert' version '1.5.8'
 	id 'java'
 	id 'com.google.protobuf' version '0.8.16'
+	id 'jacoco'
 }
 
 apply plugin: 'java'
@@ -11,10 +12,13 @@ apply plugin: 'com.google.protobuf'
 
 group = 'com.tmsolution'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '16'
 
 repositories {
 	mavenCentral()
+}
+
+jar{
+	enabled = false
 }
 
 ext {
@@ -40,6 +44,9 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-actuator', version: '2.5.0'
+
+
 	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
 	implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.4.0-b180830.0359'
 	implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.4.4'
