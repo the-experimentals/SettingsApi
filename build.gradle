@@ -3,13 +3,18 @@ plugins {
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'org.asciidoctor.convert' version '1.5.8'
 	id 'java'
-	id 'com.google.protobuf' version '0.8.16'
+	id 'com.google.protobuf' version '0.8.18'
 	id 'jacoco'
 }
 
 group = 'com.tmsolution'
 version = '0.0.1'
-sourceCompatibility = JavaVersion.VERSION_17
+
+java{
+	toolchain{
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
 
 repositories {
 	mavenCentral()
@@ -49,10 +54,10 @@ dependencies {
 	implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.4.0-b180830.0359'
 	implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.4.4'
 
-	implementation group: 'io.grpc', name: 'grpc-netty', version: '1.38.0'
-	implementation group: 'io.grpc', name: 'grpc-protobuf', version: '1.38.0'
-	implementation group: 'io.grpc', name: 'grpc-stub', version: '1.38.0'
-	implementation group: 'com.google.protobuf', name: 'protobuf-java-util', version: '3.15.8'
+	implementation group: 'io.grpc', name: 'grpc-netty', version: '1.45.1'
+	implementation group: 'io.grpc', name: 'grpc-protobuf', version: '1.45.1'
+	implementation group: 'io.grpc', name: 'grpc-stub', version: '1.45.1'
+	implementation group: 'com.google.protobuf', name: 'protobuf-java-util', version: '3.20.0'
 
 	implementation group: 'net.devh', name: 'grpc-server-spring-boot-starter', version: '2.12.0.RELEASE'
 	implementation group: 'net.devh', name: 'grpc-spring-boot-starter', version: '2.12.0.RELEASE'
@@ -78,12 +83,12 @@ asciidoctor {
 
 protobuf {
 	protoc {
-		artifact = 'com.google.protobuf:protoc:3.17.2'
+		artifact = 'com.google.protobuf:protoc:3.20.0'
 	}
 
 	plugins {
 		grpc {
-			artifact = "io.grpc:protoc-gen-grpc-java:1.38.0"
+			artifact = "io.grpc:protoc-gen-grpc-java:1.45.1"
 		}
 	}
 	generateProtoTasks {
