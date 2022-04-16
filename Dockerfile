@@ -1,9 +1,9 @@
-FROM gradle:7.0-jdk16-hotspot AS build
+FROM gradle:7.4.2-jdk17 AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
 RUN gradle build --no-daemon
 
-FROM adoptopenjdk/openjdk16:jre-16.0.1_9-alpine
+FROM eclipse-temurin:17.0.2_8-jre-alpine
 
 EXPOSE 5004
 
