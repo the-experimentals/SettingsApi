@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "settingsapi-chart.fullname" . }}
+  labels:
+    {{- include "settingsapi-chart.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+{{- range $key, $value := .Values.service.Ports }}
+  - name: {{ $key }}
+{{ toYaml $value | indent 4 }}
+{{- end }}
+  selector:
+    {{- include "settingsapi-chart.selectorLabels" . | nindent 4 }}
+    app: {{ include "settingsapi-chart.fullname" . }}

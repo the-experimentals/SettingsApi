@@ -1,0 +1,17 @@
+apiVersion: gateway.networking.k8s.io/v1alpha2
+kind: HTTPRoute
+metadata:
+  name: settings-route
+spec:
+  parentRefs:
+    - name: tmsolution-gateway
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /settings
+      backendRefs:
+        - kind: Service
+          name: settingsapi
+          port: 5004
+          weight: 100
