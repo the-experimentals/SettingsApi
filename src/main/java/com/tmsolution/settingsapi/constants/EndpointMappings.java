@@ -6,7 +6,7 @@ package com.tmsolution.settingsapi.constants;
  * @project settingsapi
  */
 public class EndpointMappings {
-    public static final String CONTROLLER_PATH = "/api/settings";
+    public static final String CONTROLLER_PATH = "/v1";
     public static final String TEST_ACTION = "/test";
     public static final String GET_SETTINGS = "/get-settings";
     public static final String TOGGLE_2FA_ACTION = "/toggle-2fa";
