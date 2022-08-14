@@ -4,18 +4,18 @@ import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureException;
-import org.springframework.beans.factory.annotation.Value;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import java.nio.charset.Charset;
+import java.security.interfaces.RSAPublicKey;
 
 @Component
 public class JwtUtility {
 
-    @Value("${jwt.public-key}")
-    private String jwtSecret;
+    @Autowired
+    private RSAPublicKey publicKey;
 
     /**
      * Tries to parse specified String as a JWT token. If successful, returns User object with username, id and role prefilled (extracted from token).
@@ -27,11 +27,11 @@ public class JwtUtility {
     public UserDetails parseToken(String token) throws ExpiredJwtException, SignatureException {
 
         Claims claims = Jwts.parser()
-                .setSigningKey(jwtSecret.getBytes(Charset.defaultCharset()))
+                .setSigningKey(publicKey)
                 .parseClaimsJws(token)
                 .getBody();
 
-        return User.withUsername(claims.get("unique_name").toString())
+        return User.withUsername(claims.get("name").toString())
                 .password("")
                 .authorities(claims.get("role").toString())
                 .accountExpired(false)
