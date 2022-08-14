@@ -1,7 +1,5 @@
 package com.tmsolution.settingsapi.responsemodels;
 
-import com.tmsolution.settingsapi.constants.Themes;
-
 public class SettingsResponse {
 
     private boolean twofa;

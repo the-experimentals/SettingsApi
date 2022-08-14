@@ -1,6 +1,5 @@
 package com.tmsolution.settingsapi.dataModels;
 
-import com.tmsolution.settingsapi.constants.Themes;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -32,6 +31,7 @@ public class Settings {
     public String getTheme() {
         return this.theme;
     }
+
     public void setTheme(String theme) {
         this.theme = theme;
     }

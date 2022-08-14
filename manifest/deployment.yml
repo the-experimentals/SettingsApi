@@ -1,4 +1,4 @@
-apiVersion : apps/v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: settingsapi
@@ -20,4 +20,4 @@ spec:
         - name: settingsapi
           image: settingsapi:v1
           ports:
-          - containerPort: 5004          
+            - containerPort: 5004
