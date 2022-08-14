@@ -2,6 +2,9 @@ server:
   servlet:
     context-path: /settings
   port: 8080
+grpc:
+  server:
+    port: 6900
 jwt:
   public-key: ${PUBLIC_KEY:""}
 spring:

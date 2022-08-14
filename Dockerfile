@@ -5,7 +5,7 @@ RUN gradle build --no-daemon
 
 FROM eclipse-temurin:17.0.2_8-jre-alpine
 
-EXPOSE 5004
+EXPOSE 8080 6900
 
 RUN mkdir /app
 COPY --from=build /home/gradle/src/build/libs/*.jar /app/settingsapi.jar
