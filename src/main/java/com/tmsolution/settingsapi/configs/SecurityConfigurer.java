@@ -2,14 +2,16 @@ package com.tmsolution.settingsapi.configs;
 
 import com.tmsolution.settingsapi.filters.JwtFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 @EnableWebSecurity
-public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
+public class SecurityConfigurer {
 
     @Autowired
     private JwtFilter jwtFilter;
@@ -17,8 +19,9 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
     @Autowired
     private JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+
         http.csrf().disable().authorizeRequests()
                 .antMatchers("/v1/test").permitAll()
                 .antMatchers("/actuator/**").permitAll()
@@ -30,5 +33,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter {
                 .and().requiresChannel().antMatchers("/api/secure/**").requiresSecure();
 
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+
+        return http.build();
     }
 }

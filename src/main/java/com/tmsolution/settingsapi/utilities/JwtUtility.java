@@ -14,7 +14,7 @@ import java.nio.charset.Charset;
 @Component
 public class JwtUtility {
 
-    @Value("${jwt.secret}")
+    @Value("${jwt.public-key}")
     private String jwtSecret;
 
     /**
@@ -34,10 +34,10 @@ public class JwtUtility {
         return User.withUsername(claims.get("unique_name").toString())
                 .password("")
                 .authorities(claims.get("role").toString())
-                .accountExpired(false)//
-                .accountLocked(false)//
-                .credentialsExpired(false)//
-                .disabled(false)//
+                .accountExpired(false)
+                .accountLocked(false)
+                .credentialsExpired(false)
+                .disabled(false)
                 .build();
 
     }
