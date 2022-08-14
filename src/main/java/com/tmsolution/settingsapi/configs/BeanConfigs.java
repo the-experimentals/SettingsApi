@@ -19,7 +19,7 @@ public class BeanConfigs {
     }
 
     @Bean
-    public OpenAPI springShopOpenAPI() {
+    public OpenAPI openAPIConfig() {
 
         final String securityScheme = "bearerAuth";
 
