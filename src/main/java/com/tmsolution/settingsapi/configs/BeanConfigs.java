@@ -6,12 +6,13 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
-import org.apache.tomcat.util.codec.binary.Base64;
+import io.undertow.util.FlexBase64;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.io.IOException;
 import java.security.KeyFactory;
 import java.security.NoSuchAlgorithmException;
 import java.security.interfaces.RSAPublicKey;
@@ -55,13 +56,13 @@ public class BeanConfigs {
     }
 
     @Bean
-    public RSAPublicKey rsaPublicKey() throws NoSuchAlgorithmException, InvalidKeySpecException {
+    public RSAPublicKey rsaPublicKey() throws NoSuchAlgorithmException, InvalidKeySpecException, IOException {
         String publicKeyPEM = jwtPublicKey
                 .replace("-----BEGIN PUBLIC KEY-----", "")
                 .replaceAll(System.lineSeparator(), "")
                 .replace("-----END PUBLIC KEY-----", "");
 
-        byte[] encoded = Base64.decodeBase64(publicKeyPEM);
+        byte[] encoded = FlexBase64.decode(publicKeyPEM).array();
 
         KeyFactory keyFactory = KeyFactory.getInstance("RSA");
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(encoded);

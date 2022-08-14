@@ -8,7 +8,7 @@
                 <Pattern>%blue(%d{ISO8601}) %highlight(%-5level) [%blue(%t)] %yellow(%C{1.}): %msg%n%throwable</Pattern>
             </layout>
         </appender>
-        <logger name="org.springframework.test.context.jdbc" level="DEBUG" />
+        <logger name="org.springframework.test.context.jdbc" level="DEBUG"/>
         <root level="INFO">
             <appender-ref ref="console"/>
         </root>
