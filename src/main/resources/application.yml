@@ -1,0 +1,29 @@
+server:
+  servlet:
+    context-path: /settings
+  port: 8080
+jwt:
+  public-key: ${PUBLIC_KEY:""}
+spring:
+  data:
+    mongodb:
+      host: host.docker.internal
+      database: settingsdb
+      port: 27017
+management:
+  endpoint:
+    health:
+      probes:
+        enabled: true
+  health:
+    livenessstate:
+      enabled: true
+    readinessstate:
+      enabled: true
+    db:
+      enabled: false
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /api-docs.html
