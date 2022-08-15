@@ -13,5 +13,5 @@ spec:
       backendRefs:
         - kind: Service
           name: settingsapi
-          port: 5004
+          port: 8080
           weight: 100
