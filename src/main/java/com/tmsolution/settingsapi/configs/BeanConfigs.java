@@ -6,7 +6,7 @@ import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
 import io.swagger.v3.oas.models.security.SecurityRequirement;
 import io.swagger.v3.oas.models.security.SecurityScheme;
-import io.undertow.util.FlexBase64;
+import org.apache.tomcat.util.codec.binary.Base64;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -62,7 +62,8 @@ public class BeanConfigs {
                 .replaceAll(System.lineSeparator(), "")
                 .replace("-----END PUBLIC KEY-----", "");
 
-        byte[] encoded = FlexBase64.decode(publicKeyPEM).array();
+
+        byte[] encoded = Base64.decodeBase64(publicKeyPEM);
 
         KeyFactory keyFactory = KeyFactory.getInstance("RSA");
         X509EncodedKeySpec keySpec = new X509EncodedKeySpec(encoded);
