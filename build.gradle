@@ -60,7 +60,7 @@ dependencies {
     implementation group: 'net.devh', name: 'grpc-server-spring-boot-starter', version: '2.12.0.RELEASE'
     implementation group: 'net.devh', name: 'grpc-spring-boot-starter', version: '2.12.0.RELEASE'
 
-    implementation 'org.springdoc:springdoc-openapi-ui:1.6.9'
+    implementation 'org.springdoc:springdoc-openapi-ui:1.6.10'
 
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
