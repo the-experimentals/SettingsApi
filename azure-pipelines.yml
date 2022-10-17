@@ -9,22 +9,18 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
-stages:
-  - stage: 
-    jobs:
-    - job: 
-      steps:
-        - task: Gradle@3
-          displayName: Gradle build
-          timeoutInMinutes: 10
-          inputs:
-            workingDirectory: ''
-            gradleWrapperFile: 'gradlew'
-            gradleOptions: '-Xmx4g -Xms4g -XX:MaxMetaspaceSize=1g -XX:+UseParallelGC -Dfile.encoding=UTF-8'
-            tasks: -Pci=true --parallel build
-            javaHomeOption: JDKVersion
-            jdkVersionOption: 1.17
-            jdkArchitectureOption: x64
-            publishJUnitResults: true
-            testResultsFiles: '**/TEST-*.xml'
+  steps:
+    - task: Gradle@3
+      displayName: Gradle build
+      timeoutInMinutes: 10
+      inputs:
+        workingDirectory: ''
+        gradleWrapperFile: 'gradlew'
+        gradleOptions: '-Xmx3072m'
+        tasks: --parallel build
+        javaHomeOption: JDKVersion
+        jdkVersionOption: 1.17
+        jdkArchitectureOption: x64
+        publishJUnitResults: true
+        testResultsFiles: '**/TEST-*.xml'
             
