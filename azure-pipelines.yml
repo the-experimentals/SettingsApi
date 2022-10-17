@@ -21,7 +21,7 @@ stages:
               workingDirectory: ''
               gradleWrapperFile: 'gradlew'
               gradleOptions: '-Xmx3072m'
-              tasks: --parallel build
+              tasks: --parallel --no-daemon build 
               javaHomeOption: JDKVersion
               jdkVersionOption: 1.17
               jdkArchitectureOption: x64
