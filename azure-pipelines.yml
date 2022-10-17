@@ -1,0 +1,30 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+stages:
+  - stage: 
+    jobs:
+    - job: 
+      steps:
+        - task: Gradle@3
+          displayName: Gradle build
+          timeoutInMinutes: 10
+          inputs:
+            workingDirectory: ''
+            gradleWrapperFile: 'gradlew'
+            gradleOptions: '-Xmx4g -Xms4g -XX:MaxMetaspaceSize=1g -XX:+UseParallelGC -Dfile.encoding=UTF-8'
+            tasks: -Pci=true --parallel build
+            javaHomeOption: JDKVersion
+            jdkVersionOption: 1.17
+            jdkArchitectureOption: x64
+            publishJUnitResults: true
+            testResultsFiles: '**/TEST-*.xml'
+            
