@@ -21,15 +21,15 @@ public class SecurityConfigurer {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
-        http.csrf().disable().authorizeRequests()
-                .antMatchers("/v1/test").permitAll()
-                .antMatchers("/actuator/**").permitAll()
-                .antMatchers("/api-docs/**").permitAll()
-                .antMatchers("/swagger-ui/**").permitAll()
+        http.csrf().disable().authorizeHttpRequests()
+                .requestMatchers("/v1/test").permitAll()
+                .requestMatchers("/actuator/**").permitAll()
+                .requestMatchers("/api-docs/**").permitAll()
+                .requestMatchers("/swagger-ui/**").permitAll()
                 .anyRequest().authenticated()
                 .and().exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
                 .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and().requiresChannel().antMatchers("/api/secure/**").requiresSecure();
+                .and().requiresChannel().requestMatchers("/api/secure/**").requiresSecure();
 
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
