@@ -11,4 +11,4 @@ permissions:
 
 jobs:
   build:
-    uses: itsbibeksaini/github-actions-workflows/.github/workflows/gradle-build.yml@main
+    uses: itsbibeksaini/github-workflows/.github/workflows/gradle-build.yml@main
