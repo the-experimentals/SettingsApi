@@ -1,6 +1,6 @@
 syntax = "proto3";
 option java_multiple_files = true;
-package tmsolution.settings;
+package com.tmsolution.settings;
 
 service Settings{
   rpc Toggle2fa (Toggle2faRequest) returns (Toggle2faResponse);
