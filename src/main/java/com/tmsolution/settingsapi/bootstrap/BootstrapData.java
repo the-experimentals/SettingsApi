@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class BootstrapData implements ApplicationListener<ApplicationReadyEvent> {
 
     private final SettingsRepository settingsRepository;
