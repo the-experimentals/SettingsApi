@@ -13,7 +13,7 @@ dependencies {
     implementation ("org.springframework.boot:spring-boot-starter-actuator")
 
     implementation ("io.jsonwebtoken:jjwt:0.9.1")
-    implementation ("org.modelmapper:modelmapper:2.4.4")
+    implementation ("org.modelmapper:modelmapper:3.1.1")
 
     implementation ("net.devh:grpc-server-spring-boot-starter:2.14.0.RELEASE")
     implementation ("net.devh:grpc-spring-boot-starter:2.14.0.RELEASE")
