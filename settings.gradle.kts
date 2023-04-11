@@ -11,4 +11,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "SettingsApi"
-//include(":settings-service")
+include(":settings-service")
+include(":settings-proto")

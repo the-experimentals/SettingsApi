@@ -37,37 +37,13 @@ subprojects {
     afterEvaluate {
         dependencyManagement{
             imports {
-
+                mavenBom("org.springframework.boot:spring-boot-dependencies:3.0.5")
             }
         }
     }
 }
 
-//plugins {
-//    id 'org.springframework.boot' version '3.0.5'
-//    id 'io.spring.dependency-management' version '1.1.0'
-//    id 'java'
-//    id 'com.google.protobuf' version '0.9.1'
-//    id 'jacoco'
-//}
-//
-//group = 'com.tmsolution.settings'
-//version = '0.0.1-SNAPSHOT'
-//
-//java {
-//    toolchain {
-//        languageVersion = JavaLanguageVersion.of(17)
-//    }
-//}
-//
-//repositories {
-//    mavenCentral()
-//}
-//
-//jar {
-//    enabled = false
-//}
-//
+
 //ext {
 //    set('snippetsDir', file("build/generated-snippets"))
 //}
