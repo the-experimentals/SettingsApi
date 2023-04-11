@@ -3,6 +3,7 @@ plugins{
     java
     id("io.spring.dependency-management") version "1.1.0"
     id("com.google.protobuf") version "0.9.1" apply false
+    id("org.springframework.boot") version "3.0.5" apply false
 }
 
 tasks{
@@ -42,76 +43,3 @@ subprojects {
         }
     }
 }
-
-
-//ext {
-//    set('snippetsDir', file("build/generated-snippets"))
-//}
-//
-//sourceSets {
-//    src {
-//        main {
-//            proto {
-//                srcDir 'src/main/protos'
-//            }
-//            java {
-//                srcDirs 'build/generated/source/proto/main/grpc'
-//                srcDirs 'build/generated/source/proto/main/java'
-//            }
-//        }
-//    }
-//}
-//
-//dependencies {
-////	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-//    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
-//    implementation 'org.springframework.boot:spring-boot-starter-security'
-//    implementation 'org.springframework.boot:spring-boot-starter-web'
-//    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-//
-//    implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.9.1'
-//    implementation group: 'javax.xml.bind', name: 'jaxb-api', version: '2.4.0-b180830.0359'
-//    implementation group: 'org.modelmapper', name: 'modelmapper', version: '2.4.4'
-//
-//    implementation group: 'io.grpc', name: 'grpc-netty', version: '1.51.0'
-//    implementation group: 'io.grpc', name: 'grpc-protobuf', version: '1.51.0'
-//    implementation group: 'io.grpc', name: 'grpc-stub', version: '1.51.0'
-//    implementation group: 'com.google.protobuf', name: 'protobuf-java-util', version: '3.21.9'
-//    implementation("javax.annotation:javax.annotation-api:1.3.2") {
-//        because("gRPC generated stup requires for javax.annotations.")
-//    }
-//
-//
-//    implementation group: 'net.devh', name: 'grpc-server-spring-boot-starter', version: '2.14.0.RELEASE'
-//    implementation group: 'net.devh', name: 'grpc-spring-boot-starter', version: '2.14.0.RELEASE'
-//
-//    implementation 'org.springdoc:springdoc-openapi-ui:1.6.10'
-//
-//    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-//    testImplementation('org.springframework.boot:spring-boot-starter-test') {
-//        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
-//    }
-//    testImplementation 'org.springframework.security:spring-security-test'
-//    testImplementation("de.flapdoodle.embed:de.flapdoodle.embed.mongo.spring30x:4.6.2")
-//}
-//
-//test {
-//    useJUnitPlatform()
-//}
-//
-//protobuf {
-//    protoc {
-//        artifact = 'com.google.protobuf:protoc:3.21.9'
-//    }
-//
-//    plugins {
-//        grpc {
-//            artifact = "io.grpc:protoc-gen-grpc-java:1.51.0"
-//        }
-//    }
-//    generateProtoTasks {
-//        all()*.plugins {
-//            grpc {}
-//        }
-//    }
-//}

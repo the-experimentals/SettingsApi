@@ -14,10 +14,6 @@ dependencies{
     }
 }
 
-ext {
-    set("snippetsDir", file("build/generated-snippets"))
-}
-//
 sourceSets {
     main{
         proto{
@@ -46,8 +42,5 @@ protobuf {
                 id("grpc")
             }
         }
-//        all()*.plugins {
-//            grpc {}
-//        }
     }
 }
