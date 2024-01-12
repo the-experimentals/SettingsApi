@@ -7,7 +7,7 @@ plugins{
 dependencies{
     implementation ("io.grpc:grpc-netty:1.51.0")
     implementation ("io.grpc:grpc-protobuf:1.51.0")
-    implementation ("io.grpc:grpc-stub:1.51.0")
+    implementation ("io.grpc:grpc-stub:1.61.0")
     implementation ("com.google.protobuf:protobuf-java-util:3.21.9")
     implementation("javax.annotation:javax.annotation-api:1.3.2") {
         because("gRPC generated stup requires for javax.annotations.")
