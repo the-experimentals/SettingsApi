@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -24,11 +25,11 @@ public class SecurityConfigurer {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-                .csrf().disable()
-                .httpBasic().disable()
-                .formLogin().disable()
-                .authorizeHttpRequests()
-                .requestMatchers(
+                .csrf(AbstractHttpConfigurer::disable)
+                .httpBasic(AbstractHttpConfigurer::disable)
+                .formLogin(AbstractHttpConfigurer::disable)
+                .authorizeHttpRequests(authorize -> authorize
+                    .requestMatchers(
                         "/v1/test",
                         "/actuator/**",
                         "/swagger-ui.html",
@@ -36,10 +37,13 @@ public class SecurityConfigurer {
                         "/swagger-ui/**",
                         "/swagger-resources/**",
                         "/*/api-docs/**").permitAll()
-                .anyRequest().authenticated()
-                .and().exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)
-                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and().requiresChannel().requestMatchers("/api/secure/**").requiresSecure();
+                        .anyRequest().authenticated()
+                )
+                .exceptionHandling(exceptionHandling -> exceptionHandling
+                        .authenticationEntryPoint(jwtAuthenticationEntryPoint))
+                .sessionManagement(sessionManagement -> sessionManagement.
+                        sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .requiresChannel(requiresChannel -> requiresChannel.requestMatchers("/api/secure/**").requiresSecure());
 
         http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 
