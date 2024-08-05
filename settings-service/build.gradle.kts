@@ -15,7 +15,7 @@ dependencies {
     implementation ("io.jsonwebtoken:jjwt:0.9.1")
     implementation ("org.modelmapper:modelmapper:3.1.1")
 
-    implementation ("net.devh:grpc-server-spring-boot-starter:2.14.0.RELEASE")
+    implementation ("net.devh:grpc-server-spring-boot-starter:2.15.0.RELEASE")
     implementation ("net.devh:grpc-spring-boot-starter:2.14.0.RELEASE")
     implementation ("org.springdoc:springdoc-openapi-ui:1.7.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
