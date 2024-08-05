@@ -3,7 +3,7 @@ plugins{
     java
     id("io.spring.dependency-management") version "1.1.0"
     id("com.google.protobuf") version "0.9.1" apply false
-    id("org.springframework.boot") version "3.0.5" apply false
+    id("org.springframework.boot") version "3.3.2" apply false
 }
 
 tasks{
@@ -38,7 +38,7 @@ subprojects {
     afterEvaluate {
         dependencyManagement{
             imports {
-                mavenBom("org.springframework.boot:spring-boot-dependencies:3.0.5")
+                mavenBom("org.springframework.boot:spring-boot-dependencies:3.3.2")
             }
         }
     }
