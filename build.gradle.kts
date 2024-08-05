@@ -1,7 +1,7 @@
 plugins{
     jacoco
     java
-    id("io.spring.dependency-management") version "1.1.0"
+    id("io.spring.dependency-management") version "1.1.6"
     id("com.google.protobuf") version "0.9.1" apply false
     id("org.springframework.boot") version "3.0.5" apply false
 }
