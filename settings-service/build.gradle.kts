@@ -17,7 +17,7 @@ dependencies {
 
     implementation ("net.devh:grpc-server-spring-boot-starter:2.14.0.RELEASE")
     implementation ("net.devh:grpc-spring-boot-starter:2.14.0.RELEASE")
-    implementation ("org.springdoc:springdoc-openapi-ui:1.7.0")
+    implementation ("org.springdoc:springdoc-openapi-ui:1.8.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude("org.junit.vintage:junit-vintage-engine")
     }
