@@ -22,5 +22,5 @@ dependencies {
         exclude("org.junit.vintage:junit-vintage-engine")
     }
     testImplementation ("org.springframework.security:spring-security-test")
-    testImplementation("de.flapdoodle.embed:de.flapdoodle.embed.mongo.spring30x:4.6.2")
+    testImplementation("de.flapdoodle.embed:de.flapdoodle.embed.mongo.spring30x:4.22.0")
 }
